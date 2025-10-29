@@ -56,10 +56,10 @@ body {
     display: flex;
     flex-direction: column;
 }
-        
- /* Gauge Card Specifics */
+   
+/* new changes to add the 3 gauges */
 .gauge-card {
-    height: 300px; /* Set a fixed height */
+    height: 250px; /* Set a fixed height */
     align-items: center; 
     justify-content: flex-start; /* Align content to the top */
 }
@@ -71,7 +71,6 @@ body {
     text-align: center;
 }
 
-/* centering the gauge */
 .gauge-wrapper {
     display: flex;
     justify-content: center;
@@ -85,15 +84,15 @@ body {
     width: 200px; /* Fixed width for the gauge */
     height: 100px; /* Fixed height (half of width) */
     position: relative;
-    overflow: hidden; /* Clips the bottom half to create the semi-circle */
+    overflow: hidden; 
 }
 
-/* The "bigger" outer gauge */
+/* The "bigger" outer semi-circle */
 .gauge-outer-semicircle {
     width: 200px;
     height: 100px; /* Half of width to make a semi-circle */
     background-color: #28a745; 
-    border-radius: 200px 200px 0 0; /* Creates the rounded top */
+    border-radius: 200px 200px 0 0; 
     position: absolute;
     top: 0;
     left: 0;
@@ -108,19 +107,57 @@ body {
     position: absolute;
     top: 20px; /* (200-160)/2 = 20px to center it horizontally */
     left: 20px; /* (200-160)/2 = 20px to center it horizontally */
-    z-index: 1; /* Ensure it sits on top of the outer semi-circle */
+    z-index: 2; /* Sits on top of the outer arc and 'optimized' label */
+    clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%); /* Clips to left half */
+}
+
+/*right half of the inner gauge, hiding the green */
+.gauge-inner-right-mask {
+    width: 160px;
+    height: 80px; 
+    background-color: #ffffff; 
+    border-radius: 160px 160px 0 0;
+    position: absolute;
+    top: 20px; 
+    left: 20px; 
+    z-index: 3; 
+    clip-path: polygon(50% 0, 100% 0, 100% 100%, 50% 100%); /* Clips to right half */
 }
 
 /* This new element will mask the center, leaving two thin arcs */
 .gauge-mask-semicircle {
-    width: 120px; /* Smaller than the inner semi-circle */
-    height: 60px; /* Half of its width */
-    background-color: #ffffff;
+    width: 120px; 
+    height: 60px; 
+    background-color: #ffffff; 
     border-radius: 120px 120px 0 0; 
     position: absolute;
     top: 40px; /* (200-120)/2 = 40px from the top */
     left: 40px; /* (200-120)/2 = 40px from the left */
-    z-index: 2; /* Sits on top of both other semi-circles */
+    z-index: 4;           
+}
+
+.gauge-label-optimized {
+    position: absolute;
+    top: 2px; /* Inside green arc */
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 11px;
+    font-weight: 600;
+    color: black;
+    z-index: 1; /* puts the label above the optimized gauge */
+    letter-spacing: 0.5px;
+}
+
+.gauge-label-original {
+    position: absolute;
+    top: 82px; /* MOVED below the arc */
+    left: 40%; /* Centered under the 90-degree arc */
+    transform: translateX(-50%);
+    font-size: 11px;
+    font-weight: 600;
+    color: #495057; 
+    z-index: 5; /* puts the label below the original gauge */
+    letter-spacing: 0.5px;
 }
 
 /* Result Card Styles */
@@ -128,8 +165,7 @@ body {
     background-color: #e6f7ff; 
     border: 1px solid #b3e0ff; 
     align-items: start; 
-    /* === Made result card same height as graphs === */
-    height: 300px; 
+    height: 250px; 
     justify-content: center;
 }
 .result-card h3 {
