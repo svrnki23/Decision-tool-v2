@@ -1,0 +1,158 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decision Support Tool</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="container">
+        
+        <!-- Header -->
+        <header class="dashboard-header">
+            <h1>Decision Support Tool</h1>
+        </header>
+
+        <div class="grid-container grid-4-col">
+            <!-- First GAUGE card (Simplified) --><div class="card gauge-card">
+                <h3>Change in CH4</h3>
+                <div class="gauge-wrapper">
+                    <div class="gauge-container">
+                        <div class="gauge-outer-semicircle"></div>
+                        <div class="gauge-inner-semicircle"></div>
+                        <div class="gauge-mask-semicircle"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Second GAUGE card (Simplified) --><div class="card gauge-card">
+                <h3>Change in Digestibility</h3>
+                <div class="gauge-wrapper">
+                    <div class="gauge-container">
+                        <div class="gauge-outer-semicircle"></div>
+                        <div class="gauge-inner-semicircle"></div>
+                        <div class="gauge-mask-semicircle"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Third GAUGE card (Simplified) --><div class="card gauge-card">
+                <h3>Return On Investment</h3>
+                <div class="gauge-wrapper">
+                    <div class="gauge-container">
+                        <div class="gauge-outer-semicircle"></div>
+                        <div class="gauge-inner-semicircle"></div>
+                        <div class="gauge-mask-semicircle"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- Best Feed Additive Combo Card -->
+            <div class="card result-card">
+                <h3>Best Feed Additive Combo</h3>
+                
+                <p class="result-label">Combination:</p>
+                <p class="result-value">Nitrate + Agolin</p>
+                
+                <p class="result-label">Dose:</p>
+                <p class="result-value">5% (g/kg DM)</p>
+            </div>
+        </div>
+
+        <!-- Optimize Button at bottom (now at the very end) -->
+        <div class="button-container">
+            <button class="btn-primary">
+                Optimize
+            </button>
+        </div>
+
+        <div class="grid-container grid-3-col">
+            <!-- Card 1: Animal Parameters -->
+            <div class="card input-card">
+                <h3>Animal Parameters</h3>
+                <div class="form-group">
+                    <label for="breed" class="form-label">Breed</label>
+                    <input type="text" id="breed" class="form-input" placeholder="Enter Breed">
+                </div>
+                <div class="form-group">
+                    <label for="parity" class="form-label">Parity</label>
+                    <input type="text" id="parity" class="form-input" placeholder="Enter value">
+                </div>
+                <div class="form-group">
+                    <label for="dim" class="form-label">DIM</label>
+                    <input type="text" id="dim" class="form-input" placeholder="Enter DIM">
+                </div>
+                <div class="form-group">
+                    <label for="dmi" class="form-label">DMI</label>
+                    <input type="text" id="dmi" class="form-input" placeholder="Enter DMI">
+                </div>
+                <div class="form-group">
+                    <label for="milk_lbs" class="form-label">Milk in lbs</label>
+                    <input type="text" id="milk_lbs" class="form-input" placeholder="Enter value">
+                </div>
+                <div class="form-group">
+                    <label for="milkfat" class="form-label">Milkfat(%)</label>
+                    <input type="text" id="milkfat" class="form-input" placeholder="Enter percentage">
+                </div>
+            </div>
+
+            <!-- Card 2: Nutritional Parameter (%) -->
+            <div class="card input-card">
+                <h3>Nutritional Parameter (%)</h3>
+                <div class="form-group">
+                    <label for="cp" class="form-label">CP (%)</label>
+                    <input type="text" id="cp" class="form-input" placeholder="Enter percentage">
+                </div>
+                <div class="form-group">
+                    <label for="ndf" class="form-label">NDF (%)</label>
+                    <input type="text" id="ndf" class="form-input" placeholder="Enter percentage">
+                </div>
+                <div class="form-group">
+                    <label for="ee" class="form-label">EE (%)</label>
+                    <input type="text" id="ee" class="form-input" placeholder="Enter percentage">
+                </div>
+                <div class="form-group">
+                    <label for="concentrate" class="form-label">Concentrate (%)</label>
+                    <input type="text" id="concentrate" class="form-input" placeholder="Enter percentage">
+                </div>
+                <div class="form-group">
+                    <label for="roughage" class="form-label">Roughage (%)</label>
+                    <input type="text" id="roughage" class="form-input" placeholder="Enter percentage">
+                </div>
+                <div class="form-group">
+                    <label for="starch" class="form-label">Starch (%)</label>
+                    <input type="text" id="starch" class="form-input" placeholder="Enter percentage">
+                </div>
+            </div>
+
+            
+            <!-- Card 3: Economics -->
+            <div class="card input-card">
+                <h3>Economics ($)</h3>
+                <div class="form-group">
+                    <label for="milk_price" class="form-label">Milk Price ($)</label>
+                    <input type="text" id="milk_price" class="form-input" placeholder="Enter Value ($)">
+                </div>
+                <div class="form-group">
+                    <label for="cost_additive_1" class="form-label">Cost of Feed Additive 1 ($)</label>
+                    <input type="text" id="cost_additive_1" class="form-input" placeholder="Enter Value ($)">
+                </div>
+                <div class="form-group">
+                    <label for="cost_additive_2" class="form-label">Cost of Feed Additive 2 ($)</label>
+                    <input type="text" id="cost_additive_2" class="form-input" placeholder="Enter Value ($)">
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
