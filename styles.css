@@ -195,9 +195,7 @@ body {
     margin-bottom: 20px;
     color: #343a40;
 }
-.input-card .form-group + .form-group {
-    margin-top: 16px; 
-}
+
 .form-label {
     display: block;
     font-size: 0.9rem;
@@ -214,11 +212,9 @@ body {
     border-radius: 6px;
     font-family: 'Inter', sans-serif;
     font-size: 1rem;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 .form-input:focus {
     border-color: #5897fb; 
-    box-shadow: 0 0 0 0.2rem rgba(88, 151, 251, 0.25); 
     outline: none;
 }
 
@@ -247,8 +243,7 @@ body {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
-
-/* Responsive Breakpoint */
+/* column layout code */
 @media (min-width: 768px) { 
     .grid-4-col {
         grid-template-columns: repeat(4, 1fr); 
@@ -256,4 +251,54 @@ body {
     .grid-3-col {
         grid-template-columns: repeat(3, 1fr); 
     }
+}
+
+/* inner circle code */
+.grid-4-col .card:first-child .gauge-outer-semicircle {
+    width: 160px;  
+    height: 80px;  
+    top: 20px;     
+    left: 20px;   
+    z-index: 2; 
+    background-color: #fd7e14; 
+    
+}
+
+/* outer circle code */
+.grid-4-col .card:first-child .gauge-inner-semicircle {
+    width: 200px;  
+    height: 100px; 
+    top: 0px;     
+    left: 0px;    
+    z-index: 0; 
+    background-color: #28a745;
+}
+
+.grid-4-col .card:first-child .gauge-inner-right-mask {
+    width: 200px;  
+    height: 100px; 
+    top: 0px;      
+    left: 0px;     
+    z-index: 0; 
+}
+
+.grid-4-col .card:first-child .gauge-mask-semicircle {
+    width: 120px;
+    height: 60px;
+    top: 40px;
+    left: 40px;
+    z-index: 3; /* On top of small green arc */
+}
+
+.grid-4-col .card:first-child .gauge-label-optimized {
+    top: 5px; 
+    left: 70%;
+    z-index: 10; /* Behind small green arc */
+}
+
+
+.grid-4-col .card:first-child .gauge-label-original {
+    top: 82px; 
+    left: 40%; /* Center it *
+    z-index: 4; /* On top of everything */
 }
