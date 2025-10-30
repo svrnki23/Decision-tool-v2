@@ -15,6 +15,20 @@ body {
     min-height: 100vh;
     padding: 24px;
 }
+.logo-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+
+    padding: 0 24px;
+    box-sizing: border-box;
+}
+
+.logo-container .logo {
+  max-height: 90px; /* Adjust this value to fit your design */
+  width: auto;
+}
 
 .container {
     width: 100%; /* === Made container wider to fit 4 columns === */
@@ -241,6 +255,10 @@ body {
 .btn-primary:hover {
     background-color: #0b5ed7;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.input-card .form-group + .form-group {
+    margin-top: 16px; 
 }
 
 /* column layout code */
