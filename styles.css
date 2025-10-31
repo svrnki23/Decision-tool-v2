@@ -20,12 +20,11 @@ body {
     justify-content: space-between;
     align-items: center;
     width: 100%;
-
     padding: 0 24px;
     box-sizing: border-box;
 }
 
-.logo-container .logo {
+.logo {
   max-height: 90px; /* Adjust this value to fit your design */
   width: auto;
 }
@@ -174,17 +173,21 @@ body {
     letter-spacing: 0.5px;
 }
 
+.result-card .logo {
+    margin-top: 1px;
+}
+
 /* Result Card Styles */
 .result-card {
     background-color: #e6f7ff; 
     border: 1px solid #b3e0ff; 
-    align-items: start; 
-    height: 250px; 
+    align-items: center; 
+    height: 260px; 
     justify-content: center;
 }
 .result-card h3 {
-    font-size: 1.25rem; 
-    font-weight: 600;
+    font-size: 1.2rem; 
+    font-weight: 500;
     margin-bottom: 20px;
     color: #0056b3; 
 }
